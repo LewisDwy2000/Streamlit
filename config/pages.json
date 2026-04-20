@@ -1,0 +1,14 @@
+[
+  {
+    "page_title": "Home",
+    "page_path": "pages/home.py",
+    "icon": "🏠",
+    "page_order": 1
+  },
+  {
+    "page_title": "About",
+    "page_path": "pages/about.py",
+    "icon": "ℹ️",
+    "page_order": 2
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "banner": "Welcome to My Streamlit App",
+  "background_color": "#f0f0f0",
+  "primary_color": "#4CAF50",
+  "title": "My App",
+  "banner_bg_color": "#00008B",
+  "banner_logo": "assets/test_logo.png"
+}
