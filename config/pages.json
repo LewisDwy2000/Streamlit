@@ -10,5 +10,11 @@
     "page_path": "pages/about.py",
     "icon": "ℹ️",
     "page_order": 2
+  },
+  {
+    "page_title": "Options",
+    "page_path": "pages/options.py",
+    "icon": "🛒",
+    "page_order": 3
   }
 ]

@@ -26,4 +26,4 @@ pages = [
 
 # Navigation
 pg = st.navigation(pages)
-pg.run()
+pg.run() 
