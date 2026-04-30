@@ -2,6 +2,33 @@ import base64
 import pathlib
 import streamlit as st
 
+def apply_header_strip(config):
+    """
+    Applies a full-width header strip at the very top of the page (above the Streamlit top bar).
+    """
+    st.markdown(
+        f"""
+        <style>
+        .header-strip {{
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: {config['banner_bg_color']};
+            height: 12px;
+            z-index: 9999;
+            margin: 0;
+            padding: 0;
+        }}
+        body {{
+            padding-top: 12px;
+        }}
+        </style>
+        <div class="header-strip"></div>
+        """,
+        unsafe_allow_html=True,
+    )
+
 def apply_banner(config):
     """
     Applies the custom banner with optional logo and background color from config.

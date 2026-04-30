@@ -10,7 +10,8 @@ PRODUCTS = [
             "Custom alerts and thresholds",
             "CSV export support"
         ],
-        "price": "$29 / month"
+        "price": "$29 / month",
+        "risk_percentage": 25
     },
     {
         "id": "product_beta",
@@ -23,7 +24,8 @@ PRODUCTS = [
             "File attachments and version history",
             "Real-time activity feed"
         ],
-        "price": "$19 / month"
+        "price": "$19 / month",
+        "risk_percentage": 50
     },
     {
         "id": "product_gamma",
@@ -36,7 +38,8 @@ PRODUCTS = [
             "Multi-factor authentication support",
             "Single sign-on integrations"
         ],
-        "price": "$49 / month"
+        "price": "$49 / month",
+        "risk_percentage": 75
     }
 ]
 
@@ -44,3 +47,25 @@ PRODUCTS = [
 def get_product(product_id):
     """Return a product dict from its id, or None when not found."""
     return next((product for product in PRODUCTS if product["id"] == product_id), None)
+
+
+def get_risk_color(risk_percentage):
+    """Return the color based on risk percentage.
+    0-33: Red, 34-66: Orange, 67-100: Green
+    """
+    if risk_percentage <= 33:
+        return "#FF4444"
+    elif risk_percentage <= 66:
+        return "#FFA500"
+    else:
+        return "#00AA00"
+
+
+def get_risk_label(risk_percentage):
+    """Return the risk label based on risk percentage."""
+    if risk_percentage <= 33:
+        return "High Risk"
+    elif risk_percentage <= 66:
+        return "Medium Risk"
+    else:
+        return "Low Risk"

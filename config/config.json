@@ -1,9 +1,11 @@
 {
   "banner": "Welcome to My Streamlit App",
   "background_color": "#fff5e6",
-  "primary_color": "#4CAF50",
+  "primary_color": "#00008B",
   "title": "My App",
   "banner_bg_color": "#00008B",
   "banner_logo": "assets/test_logo.png",
+  "sidebar_logo_width": 160,
+  "sidebar_logo_height": 160,
   "banner_bottom_spacing": 20
 }

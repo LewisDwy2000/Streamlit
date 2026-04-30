@@ -1,14 +1,16 @@
 import streamlit as st
 import json
 from streamlit_elements import elements, mui, dashboard
-from ui.banner import apply_banner
+from ui.banner import apply_banner, apply_header_strip
 from ui.asset_container import render_asset_container
+from config.objects import OBJECTS
 
 # Load configuration
 with open('config/config.json', 'r', encoding='utf-8') as f:
     config = json.load(f)
 
-# Apply banner
+# Apply header strip and banner
+apply_header_strip(config)
 apply_banner(config)
 
 st.title('Home')
@@ -100,3 +102,26 @@ with elements("dashboard"):
         mui.Paper("First item", key="first_item")
         mui.Paper("Second item (cannot drag)", key="second_item")
         mui.Paper("Third item (cannot resize)", key="third_item")
+
+st.markdown('---')
+
+st.header("Interactive Objects Selector")
+
+with st.container():
+    selected_objects = st.multiselect(
+        "Choose objects to add:",
+        [obj["ObjectType"] for obj in OBJECTS],
+        key="object_selector"
+    )
+    
+    if selected_objects:
+        st.subheader("Selected Objects:")
+        for obj_type in selected_objects:
+            obj = next(o for o in OBJECTS if o["ObjectType"] == obj_type)
+            st.markdown(f"**{obj_type}:**")
+            # Execute the example
+            try:
+                eval(obj["Example"], {"st": st})
+            except Exception as e:
+                st.error(f"Error displaying {obj_type}: {e}")
+            st.markdown("---")
