@@ -16,5 +16,11 @@
     "page_path": "pages/options.py",
     "icon": "🛒",
     "page_order": 3
+  },
+  {
+    "page_title": "Actions",
+    "page_path": "pages/actions.py",
+    "icon": "⚡",
+    "page_order": 4
   }
 ]

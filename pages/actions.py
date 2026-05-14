@@ -1,0 +1,97 @@
+import streamlit as st
+
+# Define scoped CSS for the button container
+st.markdown("""
+    <style>
+        .action-buttons-wrapper {
+            display: flex !important;
+            gap: 15px !important;
+            margin: 20px 0 !important;
+            justify-content: center !important;
+        }
+        
+        .button-column {
+            flex: 1 !important;
+        }
+        
+        .button-column button {
+            width: 100% !important;
+            padding: 15px 20px !important;
+            font-size: 16px !important;
+            font-weight: 600 !important;
+            background-color: #0066cc !important;
+            color: white !important;
+            border: none !important;
+            border-radius: 6px !important;
+            cursor: pointer !important;
+            transition: background-color 0.3s !important;
+            min-height: 50px !important;
+        }
+        
+        .button-column button:hover {
+            background-color: #0052a3 !important;
+        }
+        
+        .standalone-button-wrapper {
+            margin-top: 30px !important;
+            text-align: center !important;
+        }
+        
+        .standalone-button-wrapper button {
+            background-color: #28a745 !important;
+            color: white !important;
+            padding: 10px 40px !important;
+            font-size: 14px !important;
+            border: 2px solid #28a745 !important;
+            border-radius: 20px !important;
+            cursor: pointer !important;
+            width: auto !important;
+            transition: all 0.3s !important;
+        }
+        
+        .standalone-button-wrapper button:hover {
+            background-color: #218838 !important;
+            border-color: #218838 !important;
+            transform: scale(1.05) !important;
+        }
+    </style>
+""", unsafe_allow_html=True)
+
+st.title("Action Page")
+
+# Use a container with custom wrapper class
+st.markdown('<div class="action-buttons-wrapper">', unsafe_allow_html=True)
+
+col1, col2, col3 = st.columns(3)
+
+with col1:
+    st.markdown('<div class="button-column">', unsafe_allow_html=True)
+    btn1 = st.button("Button 1", key="btn1", use_container_width=True)
+    st.markdown('</div>', unsafe_allow_html=True)
+
+with col2:
+    st.markdown('<div class="button-column">', unsafe_allow_html=True)
+    btn2 = st.button("Button 2", key="btn2", use_container_width=True)
+    st.markdown('</div>', unsafe_allow_html=True)
+
+with col3:
+    st.markdown('<div class="button-column">', unsafe_allow_html=True)
+    btn3 = st.button("Button 3", key="btn3", use_container_width=True)
+    st.markdown('</div>', unsafe_allow_html=True)
+
+st.markdown('</div>', unsafe_allow_html=True)
+
+# Add a separate button with different CSS styling to prove isolation
+st.markdown('<div class="standalone-button-wrapper">', unsafe_allow_html=True)
+standalone_btn = st.button("Standalone Button", key="standalone", use_container_width=False)
+st.markdown('</div>', unsafe_allow_html=True)
+
+# Handle button clicks
+if btn1:
+    st.write("Button 1 clicked!")
+if btn2:
+    st.write("Button 2 clicked!")
+if btn3:
+    st.write("Button 3 clicked!")
+if standalone_btn:
+    st.write("Standalone button clicked! (This button has completely different styling)")
